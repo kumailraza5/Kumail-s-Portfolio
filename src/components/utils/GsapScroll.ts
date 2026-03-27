@@ -120,8 +120,6 @@ export function setCharTimeline(
     }
   } else {
     // Mobile Timelines
-  } else {
-    // Mobile Timelines
     if (character) {
       tl1
         .fromTo(character.rotation, { y: 0 }, { y: 0.3, duration: 1 }, 0)
