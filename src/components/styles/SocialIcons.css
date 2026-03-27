@@ -89,15 +89,89 @@ div.resume-button span {
   .social-icons a {
     font-size: 28px;
   }
-}
-@media only screen and (min-width: 768px) {
   .resume-button {
     transform: none;
     font-size: 20px;
     line-height: 20px;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    bottom: 40px;
+    right: 0;
+    color: #5e5e5e;
+    letter-spacing: 4px;
   }
   div.resume-button span {
     font-size: 23px;
     margin-top: -1.5px;
+  }
+}
+@media only screen and (max-width: 899px) {
+  .icons-section {
+    pointer-events: none;
+  }
+  .icons-section a,
+  .icons-section span {
+    pointer-events: auto;
+  }
+  .social-icons {
+    display: flex;
+    flex-direction: row;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    bottom: max(12px, env(safe-area-inset-bottom, 0px));
+    gap: 4px;
+    padding: 10px 14px;
+    background: rgba(11, 8, 12, 0.75);
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+  .social-icons span {
+    width: 44px;
+    height: 44px;
+  }
+  .social-icons a {
+    font-size: 22px;
+    color: #eae5ec;
+  }
+  .resume-button {
+    transform: none;
+    right: max(12px, env(safe-area-inset-right, 0px));
+    bottom: max(12px, env(safe-area-inset-bottom, 0px));
+    left: auto;
+    font-size: 11px;
+    line-height: 1;
+    letter-spacing: 2px;
+    padding: 12px 14px;
+    background: rgba(11, 8, 12, 0.75);
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    color: #bdb8c2;
+  }
+  div.resume-button span {
+    font-size: 18px;
+    margin-top: 0;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .social-icons {
+    max-width: calc(100vw - 120px);
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 0;
+  }
+}
+@media only screen and (min-width: 768px) and (max-width: 899px) {
+  .resume-button {
+    font-size: 13px;
+    padding: 14px 18px;
   }
 }

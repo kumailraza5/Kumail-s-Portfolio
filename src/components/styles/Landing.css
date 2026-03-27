@@ -24,6 +24,7 @@
   filter: blur(60px);
   border-radius: 50%;
   animation: loadingCircle 5s linear infinite;
+  opacity: 0.85;
 }
 .nav-fade {
   position: fixed;
@@ -108,6 +109,68 @@
   z-index: 10;
   bottom: 0px;
   pointer-events: inherit;
+}
+
+@media screen and (max-width: 767px) {
+  .landing-circle1 {
+    width: min(220px, 55vw);
+    height: min(220px, 55vw);
+    filter: blur(48px);
+  }
+  .landing-intro {
+    padding-left: max(12px, env(safe-area-inset-left, 0px));
+    padding-right: 12px;
+    position: relative;
+    top: max(12px, env(safe-area-inset-top, 0px));
+    left: 0;
+    padding-top: 56px;
+  }
+  .landing-info {
+    position: relative;
+    bottom: auto;
+    right: auto;
+    left: auto;
+    transform: none;
+    text-align: left;
+    padding: 12px max(12px, env(safe-area-inset-right, 0px)) 0
+      max(12px, env(safe-area-inset-left, 0px));
+    margin-top: 0.25rem;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .landing-info h2 {
+    margin-left: 0;
+  }
+  h2.landing-info-h2 {
+    margin-left: 0;
+    width: 100%;
+  }
+  .landing-section {
+    min-height: 100dvh;
+    height: auto;
+    padding-bottom: max(16px, env(safe-area-inset-bottom, 0px));
+  }
+  .landing-container {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: inherit;
+  }
+  .character-model {
+    height: 50vh !important;
+    position: relative !important;
+    margin-top: clamp(64px, 12vh, 20vh);
+  }
+
+  .character-model canvas {
+    max-height: 50vh;
+  }
+
+  .character-rim {
+    width: 200px;
+    height: 200px;
+    transform: translate(-50%, 30%) scale(1.2);
+  }
 }
 .character-model::after {
   content: "";
@@ -246,32 +309,31 @@ h2.landing-info-h2 {
 }
 @media screen and (max-width: 499px) {
   .landing-intro {
-    top: 12%;
-    padding-left: 20px;
+    padding-top: 52px;
+    max-width: min(100%, 20rem);
   }
   .landing-intro h2 {
-    font-size: 14px;
-    letter-spacing: 1.5px;
+    font-size: 15px;
+    letter-spacing: 1px;
   }
   .landing-intro h1 {
-    font-size: 24px;
-    line-height: 26px;
+    font-size: clamp(26px, 7vw, 28px);
+    line-height: 1.05;
   }
   .landing-info {
-    bottom: 30px;
-    right: 50%;
-    transform: translateX(50%);
+    padding-top: 8px;
   }
   .landing-info h3 {
-    font-size: 14px;
+    font-size: 15px;
   }
   .landing-info h2 {
-    font-size: 26px;
-    line-height: 32px;
-    margin-top: -12px;
+    font-size: clamp(24px, 6.5vw, 28px);
+    line-height: 1.15;
+    margin-top: 4px;
+    flex-wrap: wrap;
   }
   h2.landing-info-h2 {
-    font-size: 32px;
+    font-size: clamp(30px, 8vw, 34px);
   }
 }
 @media screen and (min-width: 500px) {

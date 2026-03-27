@@ -6,38 +6,84 @@ import { ScrollSmoother } from "gsap/ScrollSmoother";
 import "./styles/Navbar.css";
 
 gsap.registerPlugin(ScrollSmoother, ScrollTrigger);
-export let smoother: ScrollSmoother;
+export let smoother: ScrollSmoother | null = null;
+
+const isDesktopSmoother = () =>
+  typeof window !== "undefined" &&
+  window.matchMedia("(min-width: 1025px)").matches;
 
 const Navbar = () => {
   useEffect(() => {
-    smoother = ScrollSmoother.create({
-      wrapper: "#smooth-wrapper",
-      content: "#smooth-content",
-      smooth: 1.7,
-      speed: 1.7,
-      effects: true,
-      autoResize: true,
-      ignoreMobileResize: true,
-    });
+    let smootherInstance: ScrollSmoother | null = null;
 
-    smoother.scrollTop(0);
-    smoother.paused(true);
+    const createSmoother = () => {
+      smootherInstance = ScrollSmoother.create({
+        wrapper: "#smooth-wrapper",
+        content: "#smooth-content",
+        smooth: 1.7,
+        speed: 1.7,
+        effects: true,
+        autoResize: true,
+        ignoreMobileResize: true,
+        smoothTouch: false,
+      });
+      smoother = smootherInstance;
+      smoother.scrollTop(0);
+      smoother.paused(true);
+    };
+
+    const destroySmoother = () => {
+      smootherInstance?.kill();
+      smootherInstance = null;
+      smoother = null;
+    };
+
+    if (isDesktopSmoother()) {
+      createSmoother();
+    } else {
+      smoother = null;
+    }
 
     let links = document.querySelectorAll(".header ul a");
     links.forEach((elem) => {
       let element = elem as HTMLAnchorElement;
       element.addEventListener("click", (e) => {
-        if (window.innerWidth > 1024) {
-          e.preventDefault();
-          let elem = e.currentTarget as HTMLAnchorElement;
-          let section = elem.getAttribute("data-href");
+        e.preventDefault();
+        let elem = e.currentTarget as HTMLAnchorElement;
+        let section = elem.getAttribute("data-href");
+        if (window.innerWidth > 1024 && smoother) {
           smoother.scrollTo(section, true, "top top");
+        } else {
+          document
+            .querySelector(section!)
+            ?.scrollIntoView({ behavior: "smooth", block: "start" });
         }
       });
     });
-    window.addEventListener("resize", () => {
-      ScrollSmoother.refresh(true);
-    });
+
+    const onResize = () => {
+      const desktop = isDesktopSmoother();
+      if (desktop && !smootherInstance) {
+        createSmoother();
+        const main = document.querySelector("main.main-body");
+        if (main?.classList.contains("main-active")) {
+          smoother?.paused(false);
+        }
+      } else if (!desktop && smootherInstance) {
+        destroySmoother();
+      }
+      if (smootherInstance) {
+        ScrollSmoother.refresh(true);
+      } else {
+        ScrollTrigger.refresh();
+      }
+    };
+
+    window.addEventListener("resize", onResize);
+    return () => {
+      window.removeEventListener("resize", onResize);
+      destroySmoother();
+    };
   }, []);
   return (
     <>

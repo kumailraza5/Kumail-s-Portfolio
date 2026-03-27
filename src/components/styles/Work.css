@@ -234,10 +234,19 @@
     font-size: 14px;
   }
   .work-image img {
-    max-height: 200px;
+    max-height: none;
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 8px;
   }
   .work-flex::before,
   .work-flex::after {
     display: none;
+  }
+  .work-image-in {
+    width: 100%;
+    max-width: 100%;
   }
 }

@@ -10,11 +10,12 @@
   margin: auto;
 }
 .about-me {
-  padding: 60px 0px 60px 0px;
+  padding: 48px 12px 48px 12px;
   width: 500px;
   max-width: calc(100% - 30px);
   margin: auto;
   text-align: center;
+  box-sizing: border-box;
 }
 .about-me h3 {
   font-size: 18px;
