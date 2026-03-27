@@ -354,48 +354,84 @@
 @media only screen and (max-width: 900px) {
   .whatIDO {
     flex-direction: column;
+    height: auto;
+    padding: 50px 0;
+  }
+  .what-box {
+    width: 100%;
   }
   .what-box h2 {
-    margin: 30px 0;
-    font-size: 42px;
-    line-height: 48px;
+    margin: 20px 0;
+    font-size: 38px;
+    line-height: 44px;
+    text-align: center;
+    margin-right: 0;
   }
   .what-box-in {
     margin-left: 0px;
     height: auto;
-    display: flex; /* Always show content on mobile */
-    gap: 20px;
+    display: flex !important; /* Force show on mobile - GSAP won't run */
+    flex-direction: column;
+    gap: 16px;
+    width: 100%;
+    margin-top: 8px;
   }
   .what-content {
     width: 100%;
-    min-height: auto;
-    padding: 25px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    min-height: auto !important;
+    padding: 20px;
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.12);
   }
   .what-content-in {
-    opacity: 1; /* Always visible on mobile */
-  }
-  .what-content-flex {
     opacity: 1 !important;
+    height: auto !important;
+    overflow: visible;
   }
   .what-content h3 {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 22px;
+    margin-bottom: 6px;
+  }
+  .what-content h4 {
+    font-size: 12px;
+    margin-bottom: 8px;
   }
   .what-content p {
     font-size: 13px;
-    line-height: 1.5;
+    line-height: 1.6;
+    margin-bottom: 10px;
+  }
+  .what-content h5 {
+    font-size: 11px;
+    margin-bottom: 6px;
+  }
+  .what-tags {
+    font-size: 11px;
+  }
+  .what-arrow {
+    display: none;
+  }
+  /* Hide decorative borders on mobile */
+  .what-border1,
+  .what-border2 {
+    display: none;
+  }
+  /* Hide corner decorations on mobile */
+  .what-content::before,
+  .what-corner::before,
+  .what-content::after,
+  .what-corner::after {
+    display: none;
   }
 }
 @media only screen and (max-width: 550px) {
   .whatIDO {
-    place-items: inherit;
     align-items: start;
     justify-content: left;
   }
   .what-box {
-    max-width: calc(100% - 25px);
+    max-width: calc(100% - 20px);
     margin: 0;
   }
 }

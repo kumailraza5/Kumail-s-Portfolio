@@ -278,9 +278,6 @@ h2.landing-info-h2 {
   .landing-circle2 {
     display: block;
   }
-  .character-model {
-    z-index: 0;
-  }
   .landing-info h3 {
     font-size: 18px;
   }
