@@ -8,6 +8,9 @@ gsap.registerPlugin(useGSAP);
 
 const Work = () => {
   useGSAP(() => {
+  // Only apply horizontal scroll on desktop
+  if (window.innerWidth <= 1024) return;
+
   let translateX: number = 0;
 
   function setTranslateX() {

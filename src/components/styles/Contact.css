@@ -72,8 +72,37 @@ a.contact-social {
   }
 }
 @media only screen and (max-width: 900px) {
+  .contact-section {
+    margin-top: 50px;
+    padding-bottom: 60px;
+  }
+  .contact-section h3 {
+    font-size: 28px;
+    letter-spacing: 2px;
+    margin-bottom: 16px;
+  }
   .contact-flex {
     flex-direction: column;
-    gap: 0px;
+    gap: 28px;
+  }
+  .contact-flex p {
+    margin-bottom: 8px;
+  }
+  .contact-flex h4 {
+    margin-top: 0px;
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+  .contact-box h2 {
+    font-size: 16px;
+  }
+  .contact-box h5 {
+    font-size: 15px;
+  }
+  a.contact-social {
+    font-size: 17px;
+  }
+  .contact-container {
+    width: calc(100% - 30px);
   }
 }
