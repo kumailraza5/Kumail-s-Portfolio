@@ -15,43 +15,48 @@ const Career = () => {
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>Java Developer</h4>
+                <h5>Fiesta Consultants</h5>
               </div>
               <h3>20XX</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Worked For a Year in Fiesta Consultants as a Java Developer.From 2022 to 2023.
+              Worked as an intern then got a job as a Java Developer.
+              Work With the desktops apps for the small student projects.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>FlutterFlow Developer</h4>
+                <h5>Team 360</h5>
               </div>
               <h3>20XX</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              Learn the UI/UX and App Development using FlutterFlow.
+              And Backend Development using Firebase and Firestore.
+              Started Work on the Madad App.
+              Created the whole app from scratch.
+              But not published yet. Due to company budget issues.
             </p>
           </div>
           <div className="career-info-box">
             <div className="career-info-in">
               <div className="career-role">
-                <h4>Position In Company</h4>
-                <h5>Company Name</h5>
+                <h4>Full Stack Developer</h4>
+                <h5>Weblynx Hive</h5>
               </div>
               <h3>NOW</h3>
             </div>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim
-              labore sit non ipsum temporibus quidem, deserunt eaque officiis
-              mollitia ratione suscipit repellat.
+              After So many experiences started learning react and nodejs.
+              And started working as a full stack developer. Then started
+              my own company Weblynx Hive. In between I also learned wordpress, webflow, shopify, And Framer.
+              My all projects are available on my github & portfolio website.
+              Given below are some of my projects.
+
             </p>
           </div>
         </div>
