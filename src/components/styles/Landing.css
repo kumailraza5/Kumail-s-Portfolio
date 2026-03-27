@@ -100,14 +100,14 @@
 .character-model {
   height: 80%;
   height: 80vh;
-  position: absolute;
+  position: fixed;
   max-width: 1920px;
   max-height: 1080px;
   transform: translateX(-50%);
   width: 100%;
   left: 50%;
-  z-index: 0;
-  bottom: 50px;
+  z-index: 10;
+  bottom: 0px;
   pointer-events: inherit;
 }
 .character-model::after {
@@ -158,9 +158,10 @@
 }
 .landing-intro {
   position: absolute;
-  z-index: 9;
-  top: 12%;
+  z-index: 15;
+  top: 15%;
   left: 0;
+  padding-left: 15px;
 }
 .landing-intro h2 {
   margin: 0;

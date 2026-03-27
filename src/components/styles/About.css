@@ -10,10 +10,11 @@
   margin: auto;
 }
 .about-me {
-  padding: 50px 0px;
-  padding-bottom: 0;
+  padding: 310px 0px 50px 0px; /* Space for the head above */
   width: 500px;
-  max-width: calc(100% - 15px);
+  max-width: calc(100% - 30px);
+  margin: auto;
+  text-align: center;
 }
 .about-me h3 {
   font-size: 25px;
@@ -24,10 +25,10 @@
 }
 
 .about-me p {
-  font-size: 33px;
+  font-size: 20px;
   font-weight: 600;
-  line-height: 36px;
-  letter-spacing: 1px;
+  line-height: 28px;
+  letter-spacing: 0.5px;
 }
 
 @media only screen and (min-width: 600px) {
