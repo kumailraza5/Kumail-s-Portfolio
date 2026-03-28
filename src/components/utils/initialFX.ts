@@ -6,11 +6,11 @@ export function initialFX() {
   document.body.style.overflowY = "auto";
   smoother?.paused(false);
   document.getElementsByTagName("main")[0].classList.add("main-active");
-  const isNarrow = window.matchMedia("(max-width: 1024px)").matches;
-  const textLift = isNarrow ? 36 : 80;
-  const textBlur = isNarrow ? 3 : 5;
-  const textStagger = isNarrow ? 0.02 : 0.025;
-  const textDuration = isNarrow ? 0.95 : 1.2;
+  const isCompact = window.matchMedia("(max-width: 1024px)").matches;
+  const textLift = 80;
+  const textBlur = 5;
+  const textStagger = 0.025;
+  const textDuration = 1.2;
 
   gsap.to("body", {
     backgroundColor: "#0b080c",
@@ -58,29 +58,17 @@ export function initialFX() {
 
   gsap.fromTo(
     ".landing-info-h2",
-    { opacity: 0, y: isNarrow ? 16 : 30 },
+    { opacity: 0, y: 30 },
     {
       opacity: 1,
-      duration: isNarrow ? 0.9 : 1.2,
+      duration: 1.2,
       ease: "power2.out",
       y: 0,
-      delay: isNarrow ? 0.45 : 0.8,
+      delay: 0.8,
     }
   );
 
-  if (isNarrow) {
-    gsap.fromTo(
-      ".landing-mobile-rule",
-      { scaleX: 0.2, opacity: 0 },
-      {
-        scaleX: 1,
-        opacity: 1,
-        duration: 0.85,
-        delay: 0.5,
-        ease: "power2.out",
-        transformOrigin: "0% 50%",
-      }
-    );
+  if (isCompact) {
     gsap.fromTo(
       ".character-container",
       { opacity: 0, y: 28, filter: "blur(8px)" },
@@ -109,9 +97,9 @@ export function initialFX() {
   var landingText4 = new SplitText(".landing-h2-1", TextProps);
   var landingText5 = new SplitText(".landing-h2-2", TextProps);
 
-  const loopTravel = isNarrow ? 44 : 80;
-  const loopStagger = isNarrow ? 0.07 : 0.1;
-  const loopDuration = isNarrow ? 0.95 : 1.2;
+  const loopTravel = 80;
+  const loopStagger = 0.1;
+  const loopDuration = 1.2;
   LoopText(landingText2, landingText3, loopTravel, loopStagger, loopDuration);
   LoopText(landingText4, landingText5, loopTravel, loopStagger, loopDuration);
 }

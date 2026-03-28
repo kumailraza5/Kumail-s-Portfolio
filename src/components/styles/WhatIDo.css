@@ -245,44 +245,6 @@
   }
 }
 @media only screen and (max-width: 1400px) {
-  .work-section {
-    height: auto;
-    padding: 50px 0;
-  }
-  .work-container {
-    align-content: normal;
-  }
-  .work-flex {
-    height: auto;
-    flex-direction: column;
-    margin-left: 0;
-    padding-right: 0;
-  }
-  .work-box {
-    width: 100%;
-    padding: 40px 15px;
-    border-right: none;
-    border-bottom: 1px solid #363636;
-    gap: 30px;
-  }
-  .work-flex .work-box:nth-child(even) {
-    flex-direction: column;
-  }
-  .work-title h3 {
-    font-size: 28px;
-    line-height: 1.2;
-  }
-  .work-info h4 {
-    font-size: 14px;
-  }
-  .work-image img {
-    max-height: 220px;
-    width: 100%;
-    object-fit: cover;
-  }
-  .work-link {
-    opacity: 1 !important; /* Always visible on mobile */
-  }
   .what-box h2 {
     margin-right: 20%;
   }
@@ -355,34 +317,47 @@
   .whatIDO {
     flex-direction: column;
     height: auto;
-    padding: 50px 0;
+    min-height: 0;
+    padding: 40px 0 56px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
   .what-box {
     width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
   }
   .what-box h2 {
-    margin: 20px 0;
-    font-size: 38px;
-    line-height: 44px;
+    margin: 12px 0 8px;
+    font-size: clamp(28px, 8vw, 38px);
+    line-height: 1.1;
     text-align: center;
     margin-right: 0;
   }
   .what-box-in {
     margin-left: 0px;
     height: auto;
-    display: flex !important; /* Force show on mobile - GSAP won't run */
+    display: flex !important;
     flex-direction: column;
-    gap: 16px;
+    gap: 12px;
     width: 100%;
-    margin-top: 8px;
+    max-width: min(100%, 520px);
+    margin: 8px auto 0;
+    padding: 0 max(12px, env(safe-area-inset-left, 0px)) 0
+      max(12px, env(safe-area-inset-right, 0px));
+    box-sizing: border-box;
   }
   .what-content {
     width: 100%;
     min-height: auto !important;
-    padding: 20px;
+    padding: 18px 16px;
     box-sizing: border-box;
     background: rgba(255, 255, 255, 0.04);
     border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 12px;
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
   }
   .what-content-in {
     opacity: 1 !important;
