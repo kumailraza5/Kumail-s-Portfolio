@@ -14,7 +14,20 @@ const TechStack = lazy(() => import("./TechStack"));
 
 const MainContainer = ({ children }: PropsWithChildren) => {
   const [isDesktopView, setIsDesktopView] = useState<boolean>(
-    window.innerWidth > 1024
+    typeof window !== "undefined" && window.innerWidth > 1024
+  );
+
+  const innerSite = (
+    <>
+      <About />
+      <WhatIDo />
+      <Career />
+      <Work />
+      <Suspense fallback={<div>Loading TechStack...</div>}>
+        <TechStack />
+      </Suspense>
+      <Contact />
+    </>
   );
 
   useEffect(() => {
@@ -27,29 +40,36 @@ const MainContainer = ({ children }: PropsWithChildren) => {
     return () => {
       window.removeEventListener("resize", resizeHandler);
     };
-  }, [isDesktopView]);
+  }, []);
 
   return (
     <div className="container-main">
       <Cursor />
       <Navbar />
       <SocialIcons />
-      {children}
-      <div id="smooth-wrapper">
-        <div id="smooth-content">
-          <div className="container-main">
-            <Landing></Landing>
-            <About />
-            <WhatIDo />
-            <Career />
-            <Work />
-<Suspense fallback={<div>Loading TechStack...</div>}>
-  <TechStack />
-</Suspense>
-            <Contact />
+      {!isDesktopView ? (
+        <>
+          <Landing />
+          {children}
+          <div id="smooth-wrapper">
+            <div id="smooth-content">
+              <div className="container-main">{innerSite}</div>
+            </div>
           </div>
-        </div>
-      </div>
+        </>
+      ) : (
+        <>
+          {children}
+          <div id="smooth-wrapper">
+            <div id="smooth-content">
+              <div className="container-main">
+                <Landing />
+                {innerSite}
+              </div>
+            </div>
+          </div>
+        </>
+      )}
     </div>
   );
 };
